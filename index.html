@@ -5,11 +5,11 @@
 #announce:🦊Бесплатно/Безлимит/Навсегда Fox VPN🦊
 #subscription-userinfo: upload=500; download=500; total=1000; expire=infinity
 
-[ {
-  "remarks": "⚡Лучший сервер⚡",
-  "ps": "⚡Лучший сервер⚡",
-  "tag": "⚡Лучший сервер⚡",
-  "name": "⚡Лучший сервер⚡",
+[{
+  "remarks": "🇫🇷 Франция",
+  "ps": "🇫🇷 Франция",
+  "tag": "🇫🇷 Франция",
+  "name": "🇫🇷 Франция",
   "dns": {
     "tag": "dns_out",
     "servers": [
@@ -31,6 +31,13 @@
       "1.1.1.1",
       "8.8.8.8"
     ],
+    "hosts": {
+      "cdn.vanekfree.xyz": [
+        "185.31.113.61",
+        "213.33.184.221",
+        "151.236.108.157"
+      ]
+    },
     "queryStrategy": "IPIfNonMatch"
   },
   "log": {
@@ -43,29 +50,7 @@
       "statsOutboundDownlink": true
     }
   },
-  "observatory": {
-    "subjectSelector": [
-      "proxy-"
-    ],
-    "probeUrl": "https://connectivitycheck.gstatic.com/generate_204",
-    "probeInterval": "30m",
-    "probeTimeout": "3s",
-    "enableConcurrency": true
-  },
   "routing": {
-    "domainStrategy": "IPIfNonMatch",
-    "balancers": [
-      {
-        "tag": "auto-best",
-        "selector": [
-          "proxy-"
-        ],
-        "strategy": {
-          "type": "leastPing"
-        },
-        "fallbackTag": "proxy-1"
-      }
-    ],
     "rules": [
       {
         "protocol": [
@@ -100,7 +85,7 @@
           "rezka.ag",
           "kinogo.biz"
         ],
-        "balancerTag": "auto-best"
+        "outboundTag": "proxy"
       },
       {
         "domain": [
@@ -220,13 +205,9 @@
           "geoip:private"
         ],
         "outboundTag": "direct"
-      },
-      {
-        "type": "field",
-        "network": "tcp,udp",
-        "balancerTag": "auto-best"
       }
-    ]
+    ],
+    "domainStrategy": "IPIfNonMatch"
   },
   "inbounds": [
     {
@@ -259,50 +240,16 @@
   ],
   "outbounds": [
     {
-      "tag": "proxy-1",
+      "tag": "proxy",
       "protocol": "vless",
       "settings": {
         "vnext": [
           {
-            "address": "finlander.vanekfree.xyz",
-            "port": 2083,
-            "users": [
-              {
-                "id": "124418c8-b943-4512-9453-0cc3ed242272",
-                "encryption": "none",
-                "flow": "xtls-rprx-vision"
-              }
-            ]
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "tcp",
-        "security": "reality",
-        "realitySettings": {
-          "serverName": "finlander.vanekfree.xyz",
-          "publicKey": "s80ri6u0H3ZKnkqjpgqu6HZlR4Byq5hhv6Gm9V43bEM",
-          "shortId": "a2aa",
-          "fingerprint": "firefox",
-          "spiderX": ""
-        },
-        "sockopt": {
-          "tcpFastOpen": false,
-          "tcpKeepAliveInterval": 15
-        }
-      }
-    },
-    {
-      "tag": "proxy-2",
-      "protocol": "vless",
-      "settings": {
-        "vnext": [
-          {
-            "address": "sila.vanekfree.xyz",
+            "address": "franceone.vanekstatus.xyz",
             "port": 2096,
             "users": [
               {
-                "id": "124418c8-b943-4512-9453-0cc3ed242272",
+                "id": "a1e0f905-4ede-4d02-8cdd-842d8913ba60",
                 "encryption": "none",
                 "flow": ""
               }
@@ -314,7 +261,7 @@
         "network": "xhttp",
         "security": "reality",
         "realitySettings": {
-          "serverName": "sila.vanekfree.xyz",
+          "serverName": "franceone.vanekstatus.xyz",
           "publicKey": "s80ri6u0H3ZKnkqjpgqu6HZlR4Byq5hhv6Gm9V43bEM",
           "shortId": "a2aa",
           "fingerprint": "firefox",
@@ -340,537 +287,4 @@
       "protocol": "blackhole"
     }
   ]
-},{
-  "remarks": "🧠Все нейросети",
-  "ps": "🧠Все нейросети",
-  "tag": "🧠Все нейросети",
-  "name": "🧠Все нейросети",
-  "dns": {
-    "tag": "dns_out",
-    "servers": [
-      {
-        "address": "77.88.8.8",
-        "domains": [
-          "geosite:category-ru",
-          "domain:ru",
-          "domain:рф",
-          "domain:su",
-          "domain:xn--p1ai"
-        ],
-        "expectIPs": [
-          "geoip:ru"
-        ]
-      },
-      "https://1.1.1.1/dns-query",
-      "https://8.8.8.8/dns-query",
-      "1.1.1.1",
-      "8.8.8.8"
-    ],
-    "queryStrategy": "IPIfNonMatch"
-  },
-  "log": {
-    "loglevel": "warning"
-  },
-  "stats": {},
-  "policy": {
-    "system": {
-      "statsOutboundUplink": true,
-      "statsOutboundDownlink": true
-    }
-  },
-  "routing": {
-    "rules": [
-      {
-        "protocol": [
-          "bittorrent"
-        ],
-        "outboundTag": "block"
-      },
-      {
-        "domain": [
-          "habr.com",
-          "4pda.to",
-          "4pda.ru",
-          "kemono.su",
-          "jut.su",
-          "kara.su",
-          "theins.ru",
-          "tvrain.ru",
-          "echo.msk.ru",
-          "the-village.ru",
-          "snob.ru",
-          "novayagazeta.ru",
-          "moscowtimes.ru",
-          "meduza.io",
-          "flibusta.is",
-          "rutracker.org",
-          "nnmclub.to",
-          "kinozal.tv",
-          "rutor.info",
-          "ntc.party",
-          "lostfilm.tv",
-          "hdrezka.ag",
-          "rezka.ag",
-          "kinogo.biz"
-        ],
-        "outboundTag": "proxy"
-      },
-      {
-        "domain": [
-          "geosite:category-ru",
-          "domain:ru",
-          "domain:рф",
-          "domain:su",
-          "domain:xn--p1ai",
-          "domain:ozon.ru",
-          "domain:ozonusercontent.com",
-          "domain:ozonru.me",
-          "domain:ozontravel.ru",
-          "domain:wb.ru",
-          "domain:wildberries.ru",
-          "domain:wbstatic.net",
-          "domain:avito.ru",
-          "domain:avito.st",
-          "domain:megamarket.ru",
-          "domain:sbermegamarket.ru",
-          "domain:samokat.ru",
-          "domain:vprok.ru",
-          "domain:lamoda.ru",
-          "domain:dns-shop.ru",
-          "domain:mvideo.ru",
-          "domain:eldorado.ru",
-          "domain:citilink.ru",
-          "domain:lemanapro.ru",
-          "domain:auchan.ru",
-          "domain:magnit.ru",
-          "domain:lenta.com",
-          "domain:perekrestok.ru",
-          "domain:5ka.ru",
-          "domain:vkusvill.ru",
-          "domain:sberbank.ru",
-          "domain:sber.ru",
-          "domain:sberbank.com",
-          "domain:tbank.ru",
-          "domain:tinkoff.ru",
-          "domain:alfabank.ru",
-          "domain:alfa-bank.ru",
-          "domain:vtb.ru",
-          "domain:vtb.com",
-          "domain:raiffeisen.ru",
-          "domain:gazprombank.ru",
-          "domain:sovcombank.ru",
-          "domain:halvacard.ru",
-          "domain:open.ru",
-          "domain:psbank.ru",
-          "domain:rshb.ru",
-          "domain:rosbank.ru",
-          "domain:uralsib.ru",
-          "domain:mkb.ru",
-          "domain:cbr.ru",
-          "domain:yoomoney.ru",
-          "domain:qiwi.com",
-          "domain:nspk.ru",
-          "domain:mirpay.ru",
-          "domain:sbp.nspk.ru",
-          "domain:sravni.ru",
-          "domain:banki.ru",
-          "domain:gosuslugi.ru",
-          "domain:gosuslugi41.ru",
-          "domain:mos.ru",
-          "domain:mosreg.ru",
-          "domain:nalog.ru",
-          "domain:nalog.gov.ru",
-          "domain:pfr.gov.ru",
-          "domain:sfr.gov.ru",
-          "domain:fssp.gov.ru",
-          "domain:gibdd.ru",
-          "domain:zakupki.gov.ru",
-          "domain:dnevnik.ru",
-          "domain:myschool.edu.ru",
-          "domain:emias.info",
-          "domain:ya.ru",
-          "domain:yandex.ru",
-          "domain:yandex.net",
-          "domain:vk.com",
-          "domain:vk.me",
-          "domain:vkuser.net",
-          "domain:userapi.com",
-          "domain:ok.ru",
-          "domain:odnoklassniki.ru",
-          "domain:mail.ru",
-          "domain:rambler.ru",
-          "domain:dzen.ru",
-          "domain:kinopoisk.ru",
-          "domain:rutube.ru",
-          "domain:vkvideo.ru",
-          "domain:2gis.ru",
-          "domain:2gis.com",
-          "domain:cdek.ru",
-          "domain:boxberry.ru",
-          "domain:pochta.ru",
-          "domain:mts.ru",
-          "domain:beeline.ru",
-          "domain:megafon.ru",
-          "domain:tele2.ru",
-          "domain:t2.ru",
-          "domain:rt.ru",
-          "domain:rostelecom.ru",
-          "domain:yota.ru",
-          "geosite:private",
-          "geosite:apple",
-          "geosite:apple-pki",
-          "geosite:huawei",
-          "geosite:xiaomi",
-          "geosite:category-android-app-download",
-          "geosite:f-droid",
-          "geosite:twitch"
-        ],
-        "outboundTag": "direct"
-      },
-      {
-        "ip": [
-          "geoip:ru",
-          "geoip:private"
-        ],
-        "outboundTag": "direct"
-      }
-    ],
-    "domainStrategy": "IPIfNonMatch"
-  },
-  "inbounds": [
-    {
-      "tag": "socks",
-      "port": 10808,
-      "protocol": "socks",
-      "settings": {
-        "udp": true,
-        "auth": "noauth",
-        "userLevel": 8
-      },
-      "sniffing": {
-        "enabled": true,
-        "destOverride": [
-          "http",
-          "tls",
-          "quic",
-          "fakedns"
-        ]
-      }
-    },
-    {
-      "tag": "http",
-      "port": 10809,
-      "protocol": "http",
-      "settings": {
-        "userLevel": 8
-      }
-    }
-  ],
-  "outbounds": [
-    {
-      "tag": "proxy",
-      "protocol": "vless",
-      "settings": {
-        "vnext": [
-          {
-            "address": "finlander.vanekfree.xyz",
-            "port": 2083,
-            "users": [
-              {
-                "id": "124418c8-b943-4512-9453-0cc3ed242272",
-                "encryption": "none",
-                "flow": "xtls-rprx-vision"
-              }
-            ]
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "tcp",
-        "security": "reality",
-        "realitySettings": {
-          "serverName": "finlander.vanekfree.xyz",
-          "publicKey": "s80ri6u0H3ZKnkqjpgqu6HZlR4Byq5hhv6Gm9V43bEM",
-          "shortId": "a2aa",
-          "fingerprint": "firefox",
-          "spiderX": ""
-        },
-        "sockopt": {
-          "tcpFastOpen": false,
-          "tcpKeepAliveInterval": 15
-        }
-      }
-    },
-    {
-      "tag": "direct",
-      "protocol": "freedom"
-    },
-    {
-      "tag": "block",
-      "protocol": "blackhole"
-    }
-  ]
-},{
-  "remarks": "🇫🇮 Финляндия",
-  "ps": "🇫🇮 Финляндия",
-  "tag": "🇫🇮 Финляндия",
-  "name": "🇫🇮 Финляндия",
-  "dns": {
-    "tag": "dns_out",
-    "servers": [
-      "https://1.1.1.1/dns-query",
-      "https://8.8.8.8/dns-query",
-      "https://dns.quad9.net/dns-query",
-      "1.1.1.1",
-      "8.8.8.8"
-    ],
-    "queryStrategy": "IPIfNonMatch"
-  },
-  "log": {
-    "loglevel": "warning"
-  },
-  "stats": {},
-  "policy": {
-    "system": {
-      "statsOutboundUplink": true,
-      "statsOutboundDownlink": true
-    }
-  },
-  "routing": {
-    "rules": [
-      {
-        "protocol": [
-          "bittorrent"
-        ],
-        "outboundTag": "block"
-      },
-      {
-        "domain": [
-          "habr.com",
-          "4pda.to",
-          "4pda.ru",
-          "kemono.su",
-          "jut.su",
-          "kara.su",
-          "theins.ru",
-          "tvrain.ru",
-          "echo.msk.ru",
-          "the-village.ru",
-          "snob.ru",
-          "novayagazeta.ru",
-          "moscowtimes.ru",
-          "meduza.io",
-          "flibusta.is",
-          "rutracker.org",
-          "nnmclub.to",
-          "kinozal.tv",
-          "rutor.info",
-          "ntc.party",
-          "lostfilm.tv",
-          "hdrezka.ag",
-          "rezka.ag",
-          "kinogo.biz"
-        ],
-        "outboundTag": "proxy"
-      },
-      {
-        "domain": [
-          "geosite:category-ru",
-          "domain:ru",
-          "domain:рф",
-          "domain:su",
-          "domain:xn--p1ai",
-          "domain:ozon.ru",
-          "domain:ozonusercontent.com",
-          "domain:ozonru.me",
-          "domain:ozontravel.ru",
-          "domain:wb.ru",
-          "domain:wildberries.ru",
-          "domain:wbstatic.net",
-          "domain:avito.ru",
-          "domain:avito.st",
-          "domain:megamarket.ru",
-          "domain:sbermegamarket.ru",
-          "domain:samokat.ru",
-          "domain:vprok.ru",
-          "domain:lamoda.ru",
-          "domain:dns-shop.ru",
-          "domain:mvideo.ru",
-          "domain:eldorado.ru",
-          "domain:citilink.ru",
-          "domain:lemanapro.ru",
-          "domain:auchan.ru",
-          "domain:magnit.ru",
-          "domain:lenta.com",
-          "domain:perekrestok.ru",
-          "domain:5ka.ru",
-          "domain:vkusvill.ru",
-          "domain:sberbank.ru",
-          "domain:sber.ru",
-          "domain:sberbank.com",
-          "domain:tbank.ru",
-          "domain:tinkoff.ru",
-          "domain:alfabank.ru",
-          "domain:alfa-bank.ru",
-          "domain:vtb.ru",
-          "domain:vtb.com",
-          "domain:raiffeisen.ru",
-          "domain:gazprombank.ru",
-          "domain:sovcombank.ru",
-          "domain:halvacard.ru",
-          "domain:open.ru",
-          "domain:psbank.ru",
-          "domain:rshb.ru",
-          "domain:rosbank.ru",
-          "domain:uralsib.ru",
-          "domain:mkb.ru",
-          "domain:cbr.ru",
-          "domain:yoomoney.ru",
-          "domain:qiwi.com",
-          "domain:nspk.ru",
-          "domain:mirpay.ru",
-          "domain:sbp.nspk.ru",
-          "domain:sravni.ru",
-          "domain:banki.ru",
-          "domain:gosuslugi.ru",
-          "domain:gosuslugi41.ru",
-          "domain:mos.ru",
-          "domain:mosreg.ru",
-          "domain:nalog.ru",
-          "domain:nalog.gov.ru",
-          "domain:pfr.gov.ru",
-          "domain:sfr.gov.ru",
-          "domain:fssp.gov.ru",
-          "domain:gibdd.ru",
-          "domain:zakupki.gov.ru",
-          "domain:dnevnik.ru",
-          "domain:myschool.edu.ru",
-          "domain:emias.info",
-          "domain:ya.ru",
-          "domain:yandex.ru",
-          "domain:yandex.net",
-          "domain:vk.com",
-          "domain:vk.me",
-          "domain:vkuser.net",
-          "domain:userapi.com",
-          "domain:ok.ru",
-          "domain:odnoklassniki.ru",
-          "domain:mail.ru",
-          "domain:rambler.ru",
-          "domain:dzen.ru",
-          "domain:kinopoisk.ru",
-          "domain:rutube.ru",
-          "domain:vkvideo.ru",
-          "domain:2gis.ru",
-          "domain:2gis.com",
-          "domain:cdek.ru",
-          "domain:boxberry.ru",
-          "domain:pochta.ru",
-          "domain:mts.ru",
-          "domain:beeline.ru",
-          "domain:megafon.ru",
-          "domain:tele2.ru",
-          "domain:t2.ru",
-          "domain:rt.ru",
-          "domain:rostelecom.ru",
-          "domain:yota.ru",
-          "geosite:private",
-          "geosite:apple",
-          "geosite:apple-pki",
-          "geosite:huawei",
-          "geosite:xiaomi",
-          "geosite:category-android-app-download",
-          "geosite:f-droid",
-          "geosite:twitch"
-        ],
-        "outboundTag": "direct"
-      },
-      {
-        "ip": [
-          "geoip:ru",
-          "geoip:private"
-        ],
-        "outboundTag": "direct"
-      }
-    ],
-    "domainStrategy": "IPIfNonMatch"
-  },
-  "inbounds": [
-    {
-      "tag": "socks",
-      "port": 10808,
-      "protocol": "socks",
-      "settings": {
-        "udp": true,
-        "auth": "noauth",
-        "userLevel": 8
-      },
-      "sniffing": {
-        "enabled": true,
-        "destOverride": [
-          "http",
-          "tls",
-          "quic",
-          "fakedns"
-        ]
-      }
-    },
-    {
-      "tag": "http",
-      "port": 10809,
-      "protocol": "http",
-      "settings": {
-        "userLevel": 8
-      }
-    }
-  ],
-  "outbounds": [
-    {
-      "tag": "proxy",
-      "protocol": "vless",
-      "settings": {
-        "vnext": [
-          {
-            "address": "sila.vanekfree.xyz",
-            "port": 2096,
-            "users": [
-              {
-                "id": "124418c8-b943-4512-9453-0cc3ed242272",
-                "encryption": "none",
-                "flow": ""
-              }
-            ]
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "xhttp",
-        "security": "reality",
-        "realitySettings": {
-          "serverName": "sila.vanekfree.xyz",
-          "publicKey": "s80ri6u0H3ZKnkqjpgqu6HZlR4Byq5hhv6Gm9V43bEM",
-          "shortId": "a2aa",
-          "fingerprint": "firefox",
-          "spiderX": ""
-        },
-        "sockopt": {
-          "tcpFastOpen": false,
-          "tcpKeepAliveInterval": 15
-        },
-        "xhttpSettings": {
-          "mode": "packet-up",
-          "host": "",
-          "path": "/api/v1/telemetry"
-        }
-      }
-    },
-    {
-      "tag": "direct",
-      "protocol": "freedom"
-    },
-    {
-      "tag": "block",
-      "protocol": "blackhole"
-    }
-  ]
-}
+}]
